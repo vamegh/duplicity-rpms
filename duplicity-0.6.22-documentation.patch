@@ -1,0 +1,23 @@
+Patch by Robert Scheck <robert@fedoraproject.org> for duplicity >= 0.6.22 which removes the documentation
+files from the installation through duplicity setuptools. The duplicity.spec file will catch them up using
+%doc anyway.
+- updated by grover for 0.6.26
+
+diff -Naur duplicity-0.6.26/setup.py duplicity-0.6.26.new/setup.py
+--- duplicity-0.6.26/setup.py	2015-05-06 09:17:19.000000000 -0700
++++ duplicity-0.6.26.new/setup.py	2016-04-06 14:24:23.545178212 -0700
+@@ -48,14 +48,6 @@
+ data_files = [('share/man/man1',
+                ['bin/duplicity.1',
+                 'bin/rdiffdir.1']),
+-              ('share/doc/duplicity-%s' % version_string,
+-               ['COPYING',
+-                'README',
+-                'README-REPO',
+-                'README-LOG',
+-                'tarfile-LICENSE',
+-                'tarfile-CHANGES',
+-                'CHANGELOG']),
+               ]
+ 
+ top_dir = os.path.dirname(os.path.abspath(__file__))
